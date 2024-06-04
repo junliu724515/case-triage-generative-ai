@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersion>5</activeVersion>
+    <description>Prompt to triage case based on subject and description</description>
+    <developerName>Case_Triage_Prompt</developerName>
+    <masterLabel>Case Triage Prompt</masterLabel>
+    <templateVersions>
+        <content>You are an expert specializing in triaging cases from customers. Using the following details:
+
+Case Subject: {!$Input:Case.Subject}  
+Description:  {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone for classification based on the criteria below:
+
+:If the customer&apos;s tone is urgent or prompt or immediate or repeating issues or safety issues, categorize as &quot;Priority&quot;  and produce output
+otherwise
+:If it relates to ordering, new programs, new products, new sales inquiries, contracts, or anything around it, categorize as &quot;Sales&quot;
+:If it relates to shipping, delivery, return, categorize as &quot;Customer Service&quot;
+:If it indicates billing or invoicing inquiries, categorize as &quot;Billing&quot;
+:If it indicates that the customer needs any help or support, categorize as &quot;Technical Support&quot;
+:If it is ambiguous or neutral, categorize as &quot;General&quot;
+
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot; for the category in the JSON output. 
+Return a summary of the description for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return only True or False for repeating issue in the JSON output
+The JSON output should be formatted as follows:
+
+{
+ &quot;category&quot;: &quot;&quot;,
+ &quot;summary&quot;: &quot;&quot;,
+ &quot;tone&quot;:&quot;&quot;,
+ &quot;repeating&quot;:
+}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>1</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert specializing in triaging cases from customers. Using the following details:
+
+Case Subject: {!$Input:Case.Subject}  
+Description:  {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone for classification based on the criteria below:
+
+:If the customer&apos;s tone is urgent or prompt or immediate or repeating issues or safety issues, categorize as &quot;Priority&quot;  and skip the following criteria and produce the JSON output
+:If it relates to ordering, new programs, new products, new sales inquiries, contracts, or anything around it, categorize as &quot;Sales&quot;
+:If it relates to shipping, delivery, return, categorize as &quot;Customer Service&quot;
+:If it indicates billing or invoicing inquiries, categorize as &quot;Billing&quot;
+:If it indicates that the customer needs any help or support, categorize as &quot;Technical Support&quot;
+:If it is ambiguous or neutral, categorize as &quot;General&quot;
+
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot; for the category in the JSON output. 
+Return a summary of the description for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return only True or False for repeating issue in the JSON output
+The JSON output should be formatted as follows:
+
+{
+ &quot;category&quot;: &quot;&quot;,
+ &quot;summary&quot;: &quot;&quot;,
+ &quot;tone&quot;:&quot;&quot;,
+ &quot;repeating&quot;:
+}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>2</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert specializing in triaging cases from customers. Using the following details:
+
+Case Subject: {!$Input:Case.Subject}  
+Description:  {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone for classification based on the criteria below:
+
+:If the customer&apos;s tone is urgent or prompt or immediate or repeating issues or safety issues, categorize as &quot;Priority&quot;  and skip the following criteria and produce the JSON output
+:If it relates to ordering, new programs, new products, new sales inquiries, contracts, or anything around it, categorize as &quot;Sales&quot;
+:If it relates to shipping, delivery, return, anything about Account, categorize as &quot;Customer Service&quot;
+:If it indicates billing or invoicing inquiries, categorize as &quot;Billing&quot;
+:If it indicates that the customer needs any help or support, categorize as &quot;Technical Support&quot;
+:If it is ambiguous or neutral, categorize as &quot;General&quot;
+
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot; for the category in the JSON output. 
+Return a summary of the description for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return only True or False for repeating issue in the JSON output
+The JSON output should be formatted as follows:
+
+{
+ &quot;category&quot;: &quot;&quot;,
+ &quot;summary&quot;: &quot;&quot;,
+ &quot;tone&quot;:&quot;&quot;,
+ &quot;repeating&quot;:
+}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>3</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert specializing in triaging cases from customers. Using the following details:
+
+Case Subject and Description: {!$Input:Case.Subject}, {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone for classification based on the criteria below:
+:If the customer&apos;s tone is urgent or prompt or immediate or repeating issues or safety issues, categorize as &quot;Priority&quot;  and skip the following criteria and produce the JSON output
+:If it relates to ordering, new programs, new products, new sales inquiries, contracts, or anything around it, categorize as &quot;Sales&quot;
+:If it relates to shipping, delivery, return, account renewal, categorize as &quot;Customer Service&quot;
+:If it indicates billing or invoicing inquiries, categorize as &quot;Billing&quot;
+:If it indicates that the customer needs any help or support, categorize as &quot;Technical Support&quot;
+:If it is ambiguous or neutral, categorize as &quot;General&quot;
+
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot; for the category in the JSON output. 
+Return a summary of the description for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return only True or False for repeating issue in the JSON output
+
+The JSON output should be formatted as follows:
+{&quot;category&quot;:&quot;&quot;,&quot;summary&quot;:&quot;&quot;,&quot;tone&quot;:&quot;&quot;,&quot;repeating&quot;:false}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>5</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert specializing in triaging cases from customers. Using the following details:
+
+Case Subject and Description: {!$Input:Case.Subject}, {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone for classification based on the criteria below:
+
+:If the customer&apos;s tone is urgent or prompt or immediate or repeating issues or safety issues, categorize as &quot;Priority&quot;  and skip the following criteria and produce the JSON output
+:If it relates to ordering, new programs, new products, new sales inquiries, contracts, or anything around it, categorize as &quot;Sales&quot;
+:If it relates to shipping, delivery, return, anything about Account, categorize as &quot;Customer Service&quot;
+:If it indicates billing or invoicing inquiries, categorize as &quot;Billing&quot;
+:If it indicates that the customer needs any help or support, categorize as &quot;Technical Support&quot;
+:If it is ambiguous or neutral, categorize as &quot;General&quot;
+
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot; for the category in the JSON output. 
+Return a summary of the description for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return only True or False for repeating issue in the JSON output
+The JSON output should be formatted as follows:
+
+{
+ &quot;category&quot;: &quot;&quot;,
+ &quot;summary&quot;: &quot;&quot;,
+ &quot;tone&quot;:&quot;&quot;,
+ &quot;repeating&quot;:
+}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>4</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert specializing in triaging cases from customers. Using the following details:
+
+Case Subject and Description: {!$Input:Case.Subject}, {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone for classification based on the criteria below:
+:If the customer&apos;s tone is urgent or prompt or immediate or repeating issues or safety issues, categorize as &quot;Priority&quot;  and skip the following criteria and produce the JSON output
+:If it relates to ordering, new programs, new products, new sales inquiries, contracts, or anything around it, categorize as &quot;Sales&quot;
+:If it relates to shipping, delivery, return, account renewal, categorize as &quot;Customer Service&quot;
+:If it indicates billing or invoicing inquiries, categorize as &quot;Billing&quot;
+:If it indicates that the customer needs any help or support, categorize as &quot;Technical Support&quot;
+:If it is ambiguous or neutral, categorize as &quot;General&quot;
+
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot; for the category in the JSON output. 
+Return a summary of the description for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return only True or False for repeating issue in the JSON output
+
+The JSON output should be formatted as follows:
+{&quot;category&quot;:&quot;&quot;,&quot;summary&quot;:&quot;&quot;,&quot;tone&quot;:&quot;&quot;,&quot;repeating&quot;:false}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Draft</status>
+        <versionNumber>6</versionNumber>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>
