@@ -20,13 +20,14 @@ With the new Generative AI and prompt builder on the platform, leveraging LLMs o
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/junliu724515/case-triage-generative-ai.git
+
 ```
 
 2. Navigate to the project directory:
 
 ```bash
-cd your-repo-name
+cd case-triage-generative-ai
 ```
 
 3. Deploy the project to your Salesforce org:
