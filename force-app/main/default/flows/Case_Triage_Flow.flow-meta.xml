@@ -78,9 +78,21 @@
         <locationX>176</locationX>
         <locationY>539</locationY>
         <inputAssignments>
+            <field>AI_Classification_Explanation__c</field>
+            <value>
+                <elementReference>Case_Triage_Action.explanation</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>AI_Summary__c</field>
             <value>
                 <elementReference>Case_Triage_Action.summary</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Category__c</field>
+            <value>
+                <elementReference>Case_Triage_Action.category</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -99,6 +111,12 @@
             <field>Repeating_Issue__c</field>
             <value>
                 <elementReference>Case_Triage_Action.repeating</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Sentiment__c</field>
+            <value>
+                <elementReference>Case_Triage_Action.sentiment</elementReference>
             </value>
         </inputAssignments>
         <inputReference>$Record</inputReference>

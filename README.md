@@ -1,18 +1,41 @@
-# Salesforce DX Project: Next Steps
+Instructions to deploy the sample app
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+```markdown
+# Case Classification and Routing using Salesforce Generative AI, Apex, and Flow
 
-## How Do You Plan to Deploy Your Changes?
+## Description
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+With the new Generative AI and prompt builder on the platform, leveraging LLMs on Salesforce has become easier and more accessible. This project demonstrates how to use the new AI capabilities to classify and route cases in Salesforce.
 
-## Configure Your Salesforce DX Project
+## Installation
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+1. Turn on Einstein in your org
 
-## Read All About It
+   Click the Setup icon and select Setup.
+   This will take you to the Setup page for your org
+   In the Quick Find, type Einstein Setup then select Einstein Setup.
+   Toggle the Turn on Einstein switch.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/your-repo-name.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd your-repo-name
+```
+
+3. Deploy the project to your Salesforce org:
+
+```bash
+sf project deploy start  --target-org yourOrgAlias
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+```

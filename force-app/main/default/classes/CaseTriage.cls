@@ -55,9 +55,13 @@ public with sharing class CaseTriage {
         @InvocableVariable
         public String category;
         @InvocableVariable
-        public String summary;
+        public String explanation;
         @InvocableVariable
         public String tone;
+        @InvocableVariable
+        public String sentiment;
+        @InvocableVariable
+        public String summary;
         @InvocableVariable
         public Boolean repeating;
     }

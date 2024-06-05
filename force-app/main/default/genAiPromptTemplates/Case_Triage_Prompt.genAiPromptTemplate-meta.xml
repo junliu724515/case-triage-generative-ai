@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersion>5</activeVersion>
+    <activeVersion>7</activeVersion>
     <description>Prompt to triage case based on subject and description</description>
     <developerName>Case_Triage_Prompt</developerName>
     <masterLabel>Case Triage Prompt</masterLabel>
@@ -202,22 +202,81 @@ The JSON output should be formatted as follows:
 
 Case Subject and Description: {!$Input:Case.Subject}, {!$Input:Case.Description}
 
-Please conduct a detailed analysis of the customer&apos;s tone for classification based on the criteria below:
-:If the customer&apos;s tone is urgent or prompt or immediate or repeating issues or safety issues, categorize as &quot;Priority&quot;  and skip the following criteria and produce the JSON output
-:If it relates to ordering, new programs, new products, new sales inquiries, contracts, or anything around it, categorize as &quot;Sales&quot;
-:If it relates to shipping, delivery, return, account renewal, categorize as &quot;Customer Service&quot;
-:If it indicates billing or invoicing inquiries, categorize as &quot;Billing&quot;
-:If it indicates that the customer needs any help or support, categorize as &quot;Technical Support&quot;
-:If it is ambiguous or neutral, categorize as &quot;General&quot;
+Please conduct a detailed analysis of the customer&apos;s tone and sentiment and follow instructions below for identify &quot;Priority&quot; issue
+ :If the customer&apos;s tone is urgent, prompt, immediate, repeating issues, and negative impact on customer&apos;s satisfaction, categorize as &quot;Priority&quot; and produce the JSON output
 
+otherwise, Classify the Case Subject and Description into &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot;, &quot;Technical Support&quot;, &quot;General&quot;
 
-Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot; for the category in the JSON output. 
-Return a summary of the description for the summary in the JSON output.
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot;, &quot;General&quot; for the category in the JSON output. 
+Return a explanation of the classification for the explanation in the JSON output.
 Return customer&apos;s tone for tone in the JSON output
+Return customer&apos;s sentiment for sentiment in the JSON output
 Return only True or False for repeating issue in the JSON output
 
 The JSON output should be formatted as follows:
-{&quot;category&quot;:&quot;&quot;,&quot;summary&quot;:&quot;&quot;,&quot;tone&quot;:&quot;&quot;,&quot;repeating&quot;:false}
+{&quot;category&quot;:&quot;&quot;,&quot;explanation&quot;:&quot;&quot;,&quot;tone&quot;:&quot;&quot;,&quot;sentiment&quot;:&quot;&quot;,&quot;repeating&quot;:false}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>6</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert specializing in triaging cases from customers. Using the following details:
+
+Case Subject and Description: {!$Input:Case.Subject}, {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone and sentiment and follow instructions below for identify &quot;Priority&quot; issue
+ :If the customer&apos;s tone is urgent, prompt, immediate, repeating issues, and negative impact on customer&apos;s satisfaction, categorize as &quot;Priority&quot; and produce the JSON output
+
+otherwise, Classify the Case Subject and Description into &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot;, &quot;Technical Support&quot;, &quot;General&quot;
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot;, &quot;General&quot; for the category in the JSON output. 
+Return a explanation of the classification for the explanation in the JSON output.
+Return a summary of the case for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return customer&apos;s sentiment for sentiment in the JSON output
+Return only True or False for repeating issue in the JSON output
+
+The JSON output should be formatted as follows:
+{&quot;category&quot;:&quot;&quot;,&quot;explanation&quot;:&quot;&quot;,&quot;tone&quot;:&quot;&quot;,&quot;sentiment&quot;:&quot;&quot;,&quot;summary&quot;:&quot;&quot;,&quot;repeating&quot;:false}
+</content>
+        <inputs>
+            <apiName>Case</apiName>
+            <definition>SOBJECT://Case</definition>
+            <masterLabel>Case</masterLabel>
+            <referenceName>Input:Case</referenceName>
+            <required>true</required>
+        </inputs>
+        <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
+        <status>Published</status>
+        <versionNumber>7</versionNumber>
+    </templateVersions>
+    <templateVersions>
+        <content>You are an expert specializing in case classification, routing and triaging cases from customers. Using the following details:
+
+Case Subject and Description: {!$Input:Case.Subject}, {!$Input:Case.Description}
+
+Please conduct a detailed analysis of the customer&apos;s tone and sentiment and follow instructions below for identify &quot;Priority&quot; issue
+ :If the customer&apos;s tone is urgent, prompt, immediate, repeating issues, and negative impact on customer&apos;s satisfaction, categorize as &quot;Priority&quot; and produce the JSON output
+
+otherwise, Classify the Case Subject and Description into &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot;, &quot;Technical Support&quot;, &quot;General&quot;
+
+Return only one value from &quot;Priority&quot;, &quot;Sales&quot;, &quot;Customer Service&quot;, &quot;Billing&quot; , &quot;Technical Support&quot;, &quot;General&quot; for the category in the JSON output. 
+Return an explanation of the classification for the explanation in the JSON output.
+Return a summary of the case for the summary in the JSON output.
+Return customer&apos;s tone for tone in the JSON output
+Return customer&apos;s sentiment for sentiment in the JSON output
+Return only True or False for repeating issue in the JSON output
+
+The JSON output should be formatted as follows:
+{&quot;category&quot;:&quot;&quot;,&quot;explanation&quot;:&quot;&quot;,&quot;tone&quot;:&quot;&quot;,&quot;sentiment&quot;:&quot;&quot;,&quot;summary&quot;:&quot;&quot;,&quot;repeating&quot;:false}
 </content>
         <inputs>
             <apiName>Case</apiName>
@@ -228,7 +287,7 @@ The JSON output should be formatted as follows:
         </inputs>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
         <status>Draft</status>
-        <versionNumber>6</versionNumber>
+        <versionNumber>8</versionNumber>
     </templateVersions>
     <type>einstein_gpt__flex</type>
     <visibility>Global</visibility>
