@@ -1,11 +1,11 @@
 Instructions to deploy the sample app
 
 
-# Case Classification and Routing using Salesforce Generative AI, Apex, and Flow
+# Case Classification and Routing using Salesforce Einstein Generative AI, Apex, and Flow
 
 ## Description
 
-With the new Generative AI and prompt builder on the platform, leveraging LLMs on Salesforce has become easier and more accessible. This project demonstrates how to use the new AI capabilities to classify and route cases in Salesforce.
+With the new Einstein Generative AI and prompt builder on the platform, leveraging LLMs on Salesforce has become easier and more accessible. This project demonstrates how to use the new AI capabilities to classify and route cases in Salesforce.
 
 ## Installation
 
@@ -35,6 +35,14 @@ cd case-triage-generative-ai
 ```bash
 sf project deploy start  --target-org yourOrgAlias
 ```
+5. Identify the permission set called "Case Triage Permissions" and assign it to the user
+    ![Permission Set](./images/permissionset.png) 
+
+6. Add a section of all the fields as shown the screenshot below to the case page layout:
+    ![Page Layout](./images/pagelayout.png)
+
+7. Create a new case record with subject and description to test:
+
 
 ## High Level Flow
 ![High level flow](./images/high-level-flow.png)
