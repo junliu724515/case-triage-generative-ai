@@ -1,6 +1,6 @@
 Instructions to deploy the sample app
 
-```markdown
+
 # Case Classification and Routing using Salesforce Generative AI, Apex, and Flow
 
 ## Description
@@ -17,24 +17,33 @@ With the new Generative AI and prompt builder on the platform, leveraging LLMs o
    Toggle the Turn on Einstein switch.
 
 
-1. Clone the repository:
+2. Clone the repository:
 
 ```bash
 git clone https://github.com/junliu724515/case-triage-generative-ai.git
 
 ```
 
-2. Navigate to the project directory:
+3. Navigate to the project directory:
 
 ```bash
 cd case-triage-generative-ai
 ```
 
-3. Deploy the project to your Salesforce org:
+4. Deploy the project to your Salesforce org:
 
 ```bash
 sf project deploy start  --target-org yourOrgAlias
 ```
+
+## High Level Flow
+![High level flow](./images/high-level-flow.png)
+
+## Prompt Sample
+![Prompt Sample](./images/prompt.png)
+
+## Case Record Fields
+![Case Record Fields](./images/case-record-fields.png)
 
 ## License
 
