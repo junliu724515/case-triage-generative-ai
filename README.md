@@ -7,6 +7,9 @@ Instructions to deploy the sample app
 
 With the new Einstein Generative AI and prompt builder on the platform, leveraging LLMs on Salesforce has become easier and more accessible. This project demonstrates how to use the new AI capabilities to classify and route cases in Salesforce.
 
+Blog Posts: [Part 1](https://jmcloudservices.com/blog/enhancing-case-classification-and-routing-with-tone-and-sentiment-analysis-using-salesforce-einstein-generative-ai-apex-and-flow-part-1/)
+            [Part 2](https://jmcloudservices.com/blog/enhancing-case-classification-and-routing-with-tone-and-sentiment-analysis-using-salesforce-einstein-generative-ai-apex-and-flow-part-2/)
+
 ## Installation
 
 1. Turn on Einstein in your org
