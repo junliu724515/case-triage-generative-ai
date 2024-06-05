@@ -1,3 +1,6 @@
+/**
+ * Created by junliu on 4/06/2024.
+ */
 public with sharing class CaseTriage {
 
     @InvocableMethod(Label='Case Triage' Description='Call Prompt Template to triage cases.')
