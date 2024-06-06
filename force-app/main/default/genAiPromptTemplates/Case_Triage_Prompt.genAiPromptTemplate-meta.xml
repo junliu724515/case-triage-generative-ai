@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <activeVersion>7</activeVersion>
+    <activeVersion>8</activeVersion>
     <description>Prompt to triage case based on subject and description</description>
     <developerName>Case_Triage_Prompt</developerName>
     <masterLabel>Case Triage Prompt</masterLabel>
@@ -286,7 +286,7 @@ The JSON output should be formatted as follows:
             <required>true</required>
         </inputs>
         <primaryModel>sfdc_ai__DefaultOpenAIGPT4Turbo</primaryModel>
-        <status>Draft</status>
+        <status>Published</status>
         <versionNumber>8</versionNumber>
     </templateVersions>
     <type>einstein_gpt__flex</type>

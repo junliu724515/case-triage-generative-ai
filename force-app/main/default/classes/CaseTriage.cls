@@ -41,7 +41,12 @@ public with sharing class CaseTriage {
 
                 // Consume the response and add it to the list of triage responses
                 ConnectApi.EinsteinLLMGenerationItemOutput response = generationsOutput.generations[0];
+
+                // Debugging the safety score representation of the response
+//                System.debug(response.safetyScoreRepresentation);
+                // Debugging the text of the response
 //                System.debug(response.text);
+
                 triageResponses.add((TriageResponse) JSON.deserialize(response.text, TriageResponse.class));
             } catch (Exception e) {
                 // Log any errors that occur during the triage process
